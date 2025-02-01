@@ -1,0 +1,38 @@
+[
+    {
+        "Name":"Kiruthika",
+        "Age":"28",
+        "Major":"Physics"
+    },
+    {
+        "Name":"Durga",
+        "Age":"23",
+        "Major":"Commerce"
+    },
+    {
+        "Name":"Shobana",
+        "Age":"24",
+        "Major":"Physics"
+    },
+    {
+        "Name":"Sabarisan",
+        "Age":"27",
+        "Major":"Commerce"
+    },
+    {
+        "Name":"Giri",
+        "Age":"22",
+        "Major":"ECE"
+    },
+    {
+        "Name":"Bowya",
+        "Age":"27",
+        "Major":"B.Tech"
+    },
+    {
+        "Name":"Sri",
+        "Age":"26",
+        "Major":"Maths"
+    }
+    
+]
