@@ -1,57 +1,67 @@
 [
-    {
-        "Name":"Shirt",
-        "Price":"Rs.850",
-        "Brand":"POLO"
-    },
-    {
-        "Name":"Hoodie",
-        "Price":"Rs.750",
-        "Brand":"NIKE"
-    },
-    {
-        "Name":"Pant",
-        "Price":"Rs.450",
-        "Brand":"WAZIX"
-    },
-    {
-        "Name":"Jumpsuit",
-        "Price":"Rs.650",
-        "Brand":"TOKYO"
-    },
-    {
-        "Name":"saree",
-        "Price":"Rs.599",
-        "Brand":"KALAMKARI"
-    },
-    {
-        "Name":"Salwar Kamis",
-        "Price":"Rs.500",
-        "Brand":"NIVAS"
-    },
-    {
-        "Name":"Skirt",
-        "Price":"Rs.290",
-        "Brand":"H & M"
-    },
-    {
-        "Name":"Jacket",
-        "Price":"Rs.1990",
-        "Brand":"Zouk"
-    },
-    {
-        "Name":"Handbag",
-        "Price":"Rs.899",
-        "Brand":"Michel Kores"
-    },
-    {
-        "Name":"Western frock",
-        "Price":"Rs.499",
-        "Brand":"MARS"
-    },
-    {
-        "Name":"Co-ord set",
-        "Price":"Rs.799",
-        "Brand":"PUMA"
-    }
+  {
+    "Name": "Shirt",
+    "Price": "Rs.850",
+    "Brand": "POLO"
+  },
+  {
+    "Name": "Hoodie",
+    "Price": "Rs.750",
+    "Brand": "NIKE"
+  },
+  {
+    "Name": "Pant",
+    "Price": "Rs.450",
+    "Brand": "WAZIX"
+  },
+  {
+    "Name": "Jumpsuit",
+    "Price": "Rs.650",
+    "Brand": "TOKYO"
+  },
+  {
+    "Name": "saree",
+    "Price": "Rs.599",
+    "Brand": "KALAMKARI"
+  },
+  {
+    "Name": "Salwar Kamis",
+    "Price": "Rs.500",
+    "Brand": "NIVAS"
+  },
+  {
+    "Name": "Skirt",
+    "Price": "Rs.290",
+    "Brand": "H & M"
+  },
+  {
+    "Name": "Jacket",
+    "Price": "Rs.1990",
+    "Brand": "Zouk"
+  },
+  {
+    "Name": "Handbag",
+    "Price": "Rs.899",
+    "Brand": "Michel Kores"
+  },
+  {
+    "Name": "Western frock",
+    "Price": "Rs.499",
+    "Brand": "MARS"
+  },
+  {
+    "Name": "Co-ord set",
+    "Price": "Rs.799",
+    "Brand": "PUMA"
+  },
+  {
+    "Name": "Night Suit",
+    "Price": "999",
+    "Brand": "COLOURS"
+  },
+  {
+    "Name": "Kurti",
+    "Price": "Rs.500",
+    "Brand": "EthnicWear"
+  }
 ]

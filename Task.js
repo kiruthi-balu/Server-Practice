@@ -27,29 +27,45 @@ const practice = http.createServer((req, res) => {
         }
       }
     });
-  } else if (req.url === "/adddata") {
-    fs.readFile("./productdata.json", "utf8", (error, data) => {
-      if (error) {
-        res.writeHead(500, { "Content-Type": "text/plain" });
-        console.error(error);
-        res.end("Error adding product data");
-      } else {
-        try {
-          let ip = { Name: "Palazzo", Price: "Rs.220", Brand: "KALAIMANDHIR" };
-          let old = JSON.parse(data);
-          old.push(ip);
-          // res.write(JSON.stringify(data));  doubt
-          res.end(JSON.stringify(old, null, 2));
+  } else if (req.url === "/adddata" && req.method === "POST"){
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
 
-          // res.end();
-        } catch (parseError) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
-          console.error(parseError);
-          res.end("Error parsing product data");
-        }
+    req.on("end", () => {
+      try {
+        const newProduct = JSON.parse(body);
+        fs.readFile("./productdata.json", "utf8", (error, data) => {
+          if (error) {
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            console.error(error);
+            res.end("Error reading product data");
+          } else {
+            const products = JSON.parse(data);
+            products.push(newProduct);
+
+            fs.writeFile("./productdata.json", JSON.stringify(products, null, 2), (err) => {
+              if (err) {
+                res.writeHead(500, { "Content-Type": "text/plain" });
+                console.error(err);
+                res.end("Error saving product data");
+              } else {
+                res.writeHead(201, { "Content-Type": "application/json" });
+                res.end(JSON.stringify(products, null, 2));
+              }
+            });
+          }
+        });
+      } catch (parseError) {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        console.error(parseError);
+        res.end("Invalid JSON data");
       }
     });
-  } else {
+
+  }
+   else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Nothing is happening, TRY AGAIN!!!");
   }
