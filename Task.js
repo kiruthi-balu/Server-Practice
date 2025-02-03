@@ -62,9 +62,55 @@ const practice = http.createServer((req, res) => {
         console.error(parseError);
         res.end("Invalid JSON data");
       }
+    });} else if(req.url===("editdata") && req.method==="PUT"){
+      let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
     });
 
-  }
+    req.on("end", () => {
+      try {
+        const updatedProduct = JSON.parse(body);
+        const productId = updatedProduct.id;
+
+        fs.readFile("./productdata.json", "utf8", (error, data) => {
+          if (error) {
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            console.error(error);
+            res.end("Error reading product data");
+          } else {
+            let products = JSON.parse(data);
+            const index = products.findIndex((product) => product.id === productId);
+
+            if (index !== -1) {
+              products[index] = { ...products[index], ...updatedProduct };
+
+              fs.writeFile("./productdata.json", JSON.stringify(products, null, 2), (err) => {
+                if (err) {
+                  res.writeHead(500, { "Content-Type": "text/plain" });
+                  console.error(err);
+                  res.end("Error saving product data");
+                } else {
+                  res.writeHead(200, { "Content-Type": "application/json" });
+                  res.end(JSON.stringify(products, null, 2));
+                }
+              });
+            } else {
+              res.writeHead(404, { "Content-Type": "text/plain" });
+              res.end("Product not found");
+            }
+          }
+        });
+      } catch (parseError) {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        console.error(parseError);
+        res.end("Invalid JSON data");
+      }
+    });
+
+
+    }
+  
    else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Nothing is happening, TRY AGAIN!!!");
